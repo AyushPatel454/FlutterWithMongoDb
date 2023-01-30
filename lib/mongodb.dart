@@ -29,7 +29,8 @@ class MongoDatabase {
     
     // Delete
     // username: delete1
-    await collection.deleteOne({"username":"delete1"});
+    // await collection.deleteOne({"username":"delete1"});
+    await collection.deleteMany({"username":"delete2"}); // delete multiple document whosw username = delete2
     print(await collection.find().toList());
   }
 }
