@@ -11,16 +11,20 @@ class MongoDatabase {
     var status = db.serverStatus();
     print(status);
     var collection = db.collection(COLLECTION_NAME); // call the collection // this line use to delete , update, save anything on mongo database.
-    await collection.insertMany([{ // insert document (row) in collection. // insert multiple document (rows) // ---> collection.insertOne() ---> for insert only one document (rows)
-      "username":"amy",
-      "name":"Amy Sadhu",
-      "email":"amy@gmail.com"
-    },
-    {
-      "username":"amruta",
-      "name":"Amruta Sadhu",
-      "email":"amruta@gmail.com"
-    }]);
+    // await collection.insertMany([{ // insert document (row) in collection. // insert multiple document (rows) // ---> collection.insertOne() ---> for insert only one document (rows)
+    //   "username":"amy",
+    //   "name":"Amy Sadhu",
+    //   "email":"amy@gmail.com"
+    // },
+    // {
+    //   "username":"amruta",
+    //   "name":"Amruta Sadhu",
+    //   "email":"amruta@gmail.com"
+    // }]);
+
+    // update
+    // name: ash patel ----> name: Ayush
+    await collection.update(where.eq('username', 'ash'), modify.set('name', 'Ayush')); // update single document (Row)
     print(await collection.find().toList());
   }
 }
