@@ -24,8 +24,12 @@ class MongoDatabase {
 
     // update
     // name: ash patel ----> name: Ayush
-    await collection.update(where.eq('username', 'ash'), modify.set('name', 'Ayush')); // update single document (Row)
+    // await collection.update(where.eq('username', 'ash'), modify.set('name', 'Ayush')); // update single document (Row)
     // collection.updateMany() ---> for update many documents.
+    
+    // Delete
+    // username: delete1
+    await collection.deleteOne({"username":"delete1"});
     print(await collection.find().toList());
   }
 }
